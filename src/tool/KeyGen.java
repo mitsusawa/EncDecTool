@@ -38,6 +38,6 @@ public class KeyGen {
 	}
 	
 	public KeyGen() {
-		this.BIT_LENGTH = 64;
+		this.BIT_LENGTH = 256;
 	}
 }

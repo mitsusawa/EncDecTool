@@ -27,18 +27,19 @@ repositories {
 }
 
 dependencies {
-    runtimeOnly "org.openjfx:javafx-base:11:win"
-    runtimeOnly "org.openjfx:javafx-base:11:linux"
-    runtimeOnly "org.openjfx:javafx-base:11:mac"
-    runtimeOnly "org.openjfx:javafx-controls:11:win"
-    runtimeOnly "org.openjfx:javafx-controls:11:linux"
-    runtimeOnly "org.openjfx:javafx-controls:11:mac"
-    runtimeOnly "org.openjfx:javafx-fxml:11:win"
-    runtimeOnly "org.openjfx:javafx-fxml:11:linux"
-    runtimeOnly "org.openjfx:javafx-fxml:11:mac"
-    runtimeOnly "org.openjfx:javafx-graphics:11:win"
-    runtimeOnly "org.openjfx:javafx-graphics:11:linux"
-    runtimeOnly "org.openjfx:javafx-graphics:11:mac"
+    implementation "org.openjfx:javafx-base:11:win"
+    implementation "org.openjfx:javafx-base:11:linux"
+    implementation "org.openjfx:javafx-base:11:mac"
+    implementation "org.openjfx:javafx-controls:11:win"
+    implementation "org.openjfx:javafx-controls:11:linux"
+    implementation "org.openjfx:javafx-controls:11:mac"
+    implementation "org.openjfx:javafx-fxml:11:win"
+    implementation "org.openjfx:javafx-fxml:11:linux"
+    implementation "org.openjfx:javafx-fxml:11:mac"
+    implementation "org.openjfx:javafx-graphics:11:win"
+    implementation "org.openjfx:javafx-graphics:11:linux"
+    implementation "org.openjfx:javafx-graphics:11:mac"
+
 }
 
 jar {
@@ -51,5 +52,5 @@ jar {
 
 javafx {
     version = "11"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    modules = [ 'javafx.controls']
 }
