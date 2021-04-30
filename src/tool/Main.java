@@ -226,7 +226,6 @@ public class Main extends Application {
 						array[j] = decrypted[j + 1];
 					}
 					decryptedFile.write(array);
-					System.out.println(array.length);
 				} else if (decrypted.length < 31 && decrypted != decryptedList.get(decryptedList.size() - 1)) {
 					byte[] array = new byte[31];
 					int diff = 31 - decrypted.length;
@@ -238,17 +237,14 @@ public class Main extends Application {
 						}
 					}
 					decryptedFile.write(array);
-					System.out.println(array.length);
 				} else if (decrypted == decryptedList.get(decryptedList.size() - 1)) {
 					byte[] array = new byte[decrypted.length - 1];
 					for (int j = 0; j < array.length; j++) {
 						array[j] = decrypted[j + 1];
 					}
 					decryptedFile.write(array);
-					System.out.println(array.length);
 				} else {
 					decryptedFile.write(decrypted);
-					System.out.println(decrypted.length);
 				}
 			}
 			decryptedFile.close();
