@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="encrypt">
+    <output-path>$PROJECT_DIR$/out/artifacts/encrypt</output-path>
+    <root id="root">
+      <element id="archive" name="encrypt.jar">
+        <element id="module-output" name="encrypt" />
+      </element>
+    </root>
+  </artifact>
+</component>

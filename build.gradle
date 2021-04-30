@@ -1,0 +1,55 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        maven {
+            mavenCentral()
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:5.2.0"
+        classpath "org.openjfx:javafx-plugin:0.0.9"
+    }
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "org.openjfx.javafxplugin"
+sourceSets.main.java.srcDir 'src'
+compileJava.options.encoding = "UTF-8"
+
+javafx {
+    version = "11"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    runtimeOnly "org.openjfx:javafx-base:11:win"
+    runtimeOnly "org.openjfx:javafx-base:11:linux"
+    runtimeOnly "org.openjfx:javafx-base:11:mac"
+    runtimeOnly "org.openjfx:javafx-controls:11:win"
+    runtimeOnly "org.openjfx:javafx-controls:11:linux"
+    runtimeOnly "org.openjfx:javafx-controls:11:mac"
+    runtimeOnly "org.openjfx:javafx-fxml:11:win"
+    runtimeOnly "org.openjfx:javafx-fxml:11:linux"
+    runtimeOnly "org.openjfx:javafx-fxml:11:mac"
+    runtimeOnly "org.openjfx:javafx-graphics:11:win"
+    runtimeOnly "org.openjfx:javafx-graphics:11:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:11:mac"
+}
+
+jar {
+    manifest {
+        attributes ('Main-Class': 'tool.Main', "Implementation-Title": "Gradle",
+                "Implementation-Version": 1)
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}

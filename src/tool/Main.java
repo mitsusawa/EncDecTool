@@ -141,11 +141,11 @@ public class Main extends Application {
 			Controller controller = new Controller(key);
 			List<byte[]> list = new ArrayList<>();
 			for (int i = 0; i < file.length; i++) {
-				if (i % 255 == 0) {
-					list.add(new byte[Math.min(256, file.length - i + 1)]);
+				if (i % 7 == 0) {
+					list.add(new byte[Math.min(8, file.length - i + 1)]);
 					list.get(list.size() - 1)[0] = 0;
 				}
-				list.get(list.size() - 1)[i % 255 + 1] = file[i];
+				list.get(list.size() - 1)[i % 7 + 1] = file[i];
 			}
 			// List<BigInteger> encryptedList = new ArrayList<>();
 			List<EncObject> encObjectList = Collections.synchronizedList(new ArrayList<>());
@@ -220,16 +220,16 @@ public class Main extends Application {
 			// byte[] decrypted = controller.decrypt(new BigInteger(file));
 			FileOutputStream decryptedFile = new FileOutputStream(path + ".dec");
 			for (byte[] decrypted : decryptedList) {
-				if (decrypted.length >= 256) {
+				if (decrypted.length >= 8) {
 					byte[] array = new byte[decrypted.length - 1];
 					for (int j = 0; j < array.length; j++) {
 						array[j] = decrypted[j + 1];
 					}
 					decryptedFile.write(array);
 					System.out.println(array.length);
-				} else if (decrypted.length < 255 && decrypted != decryptedList.get(decryptedList.size() - 1)) {
-					byte[] array = new byte[255];
-					int diff = 255 - decrypted.length;
+				} else if (decrypted.length < 7 && decrypted != decryptedList.get(decryptedList.size() - 1)) {
+					byte[] array = new byte[7];
+					int diff = 7 - decrypted.length;
 					for (int i = 0; i < array.length; i++) {
 						if (i < diff) {
 							array[i] = 0;
